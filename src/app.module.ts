@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { UserCqrsModule } from './user/user-cqrs.module';
+import { UserCqrsModule } from './order/order.cqrs.module';
 
 @Module({
   imports: [UserCqrsModule],
