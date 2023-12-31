@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
-import { UserCqrsModule } from './order/order.cqrs.module';
+import { UserCommandSideModule } from './order-command-side/order-cmd-side.module';
+import { CommandDatabasesModule } from './database/command/cmd-db.module';
 
 @Module({
-  imports: [UserCqrsModule],
+  imports: [UserCommandSideModule, CommandDatabasesModule],
   controllers: [],
   providers: [],
 })

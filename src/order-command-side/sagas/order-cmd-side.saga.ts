@@ -4,7 +4,7 @@ import { Saga, ICommand, ofType } from '@nestjs/cqrs';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { OrderCreatedEvent } from '../events/impl/order-created.events';
-import { CreateOrderCommand } from '../command/impl/order-created.command';
+import { CreateOrderCommand } from '../command/impl/order-created.cmd';
 
 @Injectable()
 export class OrderSaga {

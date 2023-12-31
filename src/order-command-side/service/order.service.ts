@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
 import { uuid } from 'uuidv4';
-import { CreateOrderCommand } from '../command/impl/order-created.command';
+import { CreateOrderCommand } from '../command/impl/order-created.cmd';
 
 @Injectable()
 export class OrderService {
