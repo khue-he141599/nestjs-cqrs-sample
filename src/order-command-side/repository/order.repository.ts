@@ -4,13 +4,12 @@ import { IOrder } from '../interfaces/order.interface';
 
 @Injectable()
 export class OrderRepository {
+  constructor(
+    @Inject('Order')
+    private readonly repository: Model<IOrder>,
+  ) {}
 
-    constructor(
-        @Inject('Order')
-        private readonly repository: Model<IOrder>
-    ) { }
-
-    async createEvent(eventModel: any): Promise<any> {
-    }
+  async saveOrder(body: IOrder) {
+    return this.repository.create(body);
+  }
 }
-    

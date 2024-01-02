@@ -1,14 +1,18 @@
 import { Injectable } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
-import { uuid } from 'uuidv4';
 import { CreateOrderCommand } from '../command/impl/order-created.cmd';
+import { IOrder } from '../interfaces/order.interface';
+import { OrderRepository } from '../repository/order.repository';
 
 @Injectable()
 export class OrderService {
-  constructor(private readonly commandBus: CommandBus) {}
+  constructor(
+    private readonly commandBus: CommandBus,
+    private readonly orderRepository: OrderRepository,
+  ) {}
 
-  private async executeCommand(amount: number, orderId: string) {
-    let commandObject = new CreateOrderCommand(amount, orderId);
+  private async executeCommand(body: IOrder) {
+    let commandObject = new CreateOrderCommand(body);
     return await this.commandBus
       .execute(commandObject)
       .then((response) => {
@@ -19,8 +23,12 @@ export class OrderService {
       });
   }
 
-  async createOrder(amount: number) {
-    let orderId = uuid();
-    return await this.executeCommand(amount, orderId);
+  async createOrder(body: IOrder) {
+    try {
+      await this.orderRepository.saveOrder(body);
+      return await this.executeCommand(body);
+    } catch (err) {
+      throw new Error(`createOrder error: ${err.message}`);
+    }
   }
 }
