@@ -2,8 +2,8 @@ import * as mongoose from 'mongoose';
 import { ConfigService } from '../../config/config.service';
 
 
-const Mongoose = mongoose.Mongoose;
-const instance = new Mongoose();
+// const Mongoose = mongoose.Mongoose;
+// const instance = new Mongoose();
 
 export const CommandDatabaseProvider = [
     {
