@@ -8,3 +8,4 @@ export const QueryProviders = [
         inject: ['cqrs-sample'],
       },
 ];
+    
