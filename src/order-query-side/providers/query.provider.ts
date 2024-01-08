@@ -1,5 +1,5 @@
 import { Connection } from 'mongoose';
-import { OrderSchema } from '../../order-command-side/shemas/order.schema';
+import { OrderSchema } from '../../order-command-side/schemas/order.schema';
 
 export const QueryProviders = [
     {

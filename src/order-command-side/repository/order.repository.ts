@@ -10,6 +10,6 @@ export class OrderRepository {
   ) {}
 
   async saveOrder(body: IOrder) {
-    return this.repository.create(body);
+    return this.repository.create(body);    
   }
 }

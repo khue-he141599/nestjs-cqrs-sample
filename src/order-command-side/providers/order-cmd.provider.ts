@@ -1,5 +1,5 @@
 import { Connection } from 'mongoose';
-import { OrderSchema } from '../shemas/order.schema';
+import { OrderSchema } from '../schemas/order.schema';
 
 export const OrderCmdProviders = [
   {
